@@ -13,12 +13,12 @@ required_version = ">= 1.6.6"
    }
  }
 
-resource azurerm_resource_group refrg {
+resource "azurerm_resource_group" "refrg" {
   name     = rgeus05
   location = "East US"
 }
 
-resource azurerm_storage_account refsto {
+resource "azurerm_storage_account" "refsto" {
   name                     = sageaccount
   resource_group_name      = azurerm_resource_group.refrg.name
   location                 = azurerm_resource_group.refrg.location
