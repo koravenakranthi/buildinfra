@@ -14,12 +14,12 @@ required_version = ">= 1.6.6"
  }
 
 resource azurerm_resource_group refrg {
-  name     = rg-resource-group
+  name     = rgeus05
   location = "East US"
 }
 
 resource azurerm_storage_account refsto {
-  name                     = torageaccount
+  name                     = sageaccount
   resource_group_name      = azurerm_resource_group.refrg.name
   location                 = azurerm_resource_group.refrg.location
   account_tier             = Standard
