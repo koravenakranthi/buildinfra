@@ -13,15 +13,15 @@ required_version = ">= 1.6.6"
    }
  }
 
-resource "azurerm_resource_group" "refrg" {
-  name     = rgeus05
+resource "azurerm_resource_group" "sample" {
+  name     = "sample-resource-group"
   location = "East US"
 }
 
-resource "azurerm_storage_account" "refsto" {
-  name                     = sageaccount
-  resource_group_name      = azurerm_resource_group.refrg.name
-  location                 = azurerm_resource_group.refrg.location
-  account_tier             = Standard
-  account_replication_type = LRS
+resource "azurerm_storage_account" "stosample" {
+  name                     = "samplestorageaccount"
+  resource_group_name      = azurerm_resource_group.sample.name
+  location                 = azurerm_resource_group.sample.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
 }
