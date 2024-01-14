@@ -1,22 +1,8 @@
-terraform {
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = ">= 3.86.0"
-    }
-  }
-
-  required_version = ">= 1.6.6"
+resource "random_pet" "rg_name" {
+  prefix = var.resource_group_name_prefix
 }
 
-provider "azurerm" {
-  features {
-
-  }
-}
-
-resource "azurerm_resource_group" "resprod" {
-  count = length(var.resname)
-  name = "${var.resname[count.index]}"
-  location = var.region
+resource "azurerm_resource_group" "rg" {
+  location = var.resource_group_location
+  name     = random_pet.rg_name.id
 }
